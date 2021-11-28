@@ -55,3 +55,16 @@ d = {
 ```
 
 Try your hand at this! First create a SQL query that returns a flat list of records for all babies named "Tequila" for each year on record, then try to construct a dictionary object with the number of babies named "Tequila" for each year.
+
+### Pro Tip
+Have a look at a brilliant little datastructure called a `defaultdict`: this is a dictionary that will automatically create a new key if it doesn't already exist. It works like this:
+
+```python3
+# import the defaultdict
+from collections import defaultdict # this is actually a built-in Python module, not a third-party library, so no installation of anything required. And because it's part of the standard library, you can use it in programming interviews!
+data = {2013: 5, 2014: 10}
+d = defaultdict(int, data)
+print(d[1880]) # prints the result of calling `int()` with no argument -- e.g., 0
+print(d[2013]) # prints the value of the dictionary we passed when initializing the defaultdict -- e.g., 5
+
+```
