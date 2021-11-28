@@ -1,9 +1,11 @@
 # manage.py
 
 from flask_script import Manager
-
+from collections import defaultdict
+from plotly import graph_objs as go
 from babynames.app import app
 from babynames.database import db
+import plotly_express as px
 import pdb
 import pandas as pd
 
@@ -43,17 +45,16 @@ def plot():
 
 
     fig = go.Figure()
-    for i, name in enumerate(dims):
-        fig.add_trace(go.Scatter(x=xs, y=ys, name=name, fill='tozeroy', groupnorm='percent'))  # fill down to xaxis
+    fig.add_trace(go.Scatter(x=xs, y=ys, name=name, fill='tozeroy', groupnorm='percent'))  # fill down to xaxis
     fig.update_layout(hovermode='x unified')
     # fig.update_traces(hovertemplate)
 
-    fig = px.area(df, x='year', y=dims)
-    fig.update_xaxes(
-            dtick='Y5',
-            tickformat='%Y',
-    )
-    return decapitate(fig)
+    # fig = px.area(df, x='year', y=dims)
+    # fig.update_xaxes(
+    #         dtick='Y5',
+    #         tickformat='%Y',
+    # )
+    fig.show()
 
 if __name__ == "__main__":
     manager.run()
