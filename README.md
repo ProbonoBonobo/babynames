@@ -40,32 +40,17 @@ For the purpose of this project, we'll be using the `national` table. This is lo
 
 Once we've verified that we can run the 'hello' method, we can start exploring the data. Our objective will be to plot a timeseries of the number of babynames born per year for each year in the range 1880-2014 (the last year on record). In order to plot this, we'll need a python object that contains baby counts for *each* of the years on record -- whether or not the name was actually born in that year. 
 
-This might be easiest to do by creating a dictionary of dictionaries, where the outer dictionary is indexed by the year, and the inner dictionary is indexed by the name, so that we can store the counts for each name in each year. This might look something like:
+This might be easiest to do by creating a dictionary of dictionaries, where the outer dictionary is indexed by the name, and the inner dictionary is indexed by the year, so that we can store the counts for each name in each year. This might look something like:
 
 ```python3
 d = {
-    1880: {
-        'John': 1,
-        'Jane': 2,
-        'Mary': 3,
-        'Bob': 4,
-        'Tequila': 0
-    },
-    1881: {
-        'John': 1,
-        'Jane': 2,
-        'Mary': 3,
-        'Bob': 4,
-        'Tequila': 0
-    },
-    # and so on...
-    2014: {
-        'John': 1,
-        'Jane': 2,
-        'Mary': 3,
-        'Bob': 4,
-        'Tequila': 0
-    }
+        "John" : {
+                1880: 0,
+                1881: 13,
+                1882: 24,
+                # and so on...
+                2014: 232982
+        }
 }
 ```
 
